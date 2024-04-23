@@ -1,0 +1,19 @@
+The domain centers around the manufacturing and distribution of aircraft, involving several key elements such as customers, aircraft models, parts, and suppliers.
+
+Customers represent the clients who purchase the finished aircraft. They are linked to aircraft through the purchases, which signifies the acquisition of aircraft by these clients. Additionally, every customer is identified by a name, which is a unique designation of each client in this context.
+
+Aircraft models are critical in this domain, representing different configurations of aircraft. Each aircraft model is described in detail and assigned a unique model code. Furthermore, aircraft models incorporate various part models in their design, indicating the integration of different components necessary for constructing a specific aircraft model.
+
+The notion of party is introduced to represent a generic subject involved in the aircraft manufacturing process. Each party is uniquely identified by a party code, used for business communication and documentation purposes. It is an umbrella term encompassing various entities like customers and suppliers.
+
+Part models denote the design models for individual parts used in aircraft. These models are uniquely identified by a model number and accompanied by a brief description. The part model's design and specifications play a significant role in the overall makeup of the aircraft.
+
+Supplies encompass the parts required for aircraft manufacturing, provided by a supplier. Each supply is dedicated to the manufacturing of a specific aircraft and includes specific parts necessary for this process.
+
+Parts represent individual components used in constructing an aircraft. Every part is linked to its specific model, indicating the design it follows, and is identified by a serial number and a brief description. This linkage to the specific model ensures consistency and standardization in the manufacturing process.
+
+Suppliers are entities that provide parts for aircraft manufacturing. They are a subclass of parties, indicating their involvement in the broader aircraft manufacturing process. They maintain a relationship where they supply supplies consiting of various parts necessary for the construction of aircrafts.
+
+Aircraft signify the final manufactured product in this domain. Each aircraft is uniquely identified by a serial number, linked to a specific model, indicating the design it follows, and marked with the manufacturing date. The aircraft is also defined by the parts it consists of, highlighting the composite nature of the final product.
+
+This domain, thus, presents a comprehensive view of the entities and their interrelations in the context of aircraft manufacturing, from conceptualization through production to the final purchase.

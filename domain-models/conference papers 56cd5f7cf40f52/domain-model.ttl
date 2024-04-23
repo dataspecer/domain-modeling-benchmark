@@ -1,0 +1,65 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+<conference> a owl:Class, rdfs:Class;
+    rdfs:label "Conference"@en;
+    rdfs:comment "An event where research papers are presented and discussed."@en.
+<year> a rdf:Property, owl:ObjectProperty.
+<location> a rdf:Property, owl:ObjectProperty.
+<conference-name> a rdf:Property, owl:ObjectProperty.
+<review> a owl:Class, rdfs:Class;
+    rdfs:label "Review"@en;
+    rdfs:comment "An evaluation or critique of a research paper by a reviewer."@en.
+<reviews> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "reviews"@en;
+    rdfs:comment "Links a review to the submission it evaluates.  Only the last submission of a research paper can be evaluated."@en.
+<author> a owl:Class, rdfs:Class;
+    rdfs:label "Author"@en;
+    rdfs:comment "A person who has significantly contributed to the creation of a research paper."@en;
+    rdfs:subClassOf <person>.
+<has-corresponding-author> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has corresponding author"@en;
+    rdfs:comment "Indicates who is the corresponding author from the authors of the research paper highlighting their primary responsibility in communication regarding the paper."@en.
+<affiliation> a rdf:Property, owl:ObjectProperty.
+<research-paper> a owl:Class, rdfs:Class;
+    rdfs:label "Research Paper"@en;
+    rdfs:comment "A document presenting original research findings."@en.
+<publication-year> a rdf:Property, owl:ObjectProperty.
+<has-submission> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has submission"@en;
+    rdfs:comment "Links a research paper to its submission."@en.
+<abstract> a rdf:Property, owl:ObjectProperty.
+<presented-at> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "presented at"@en;
+    rdfs:comment "Indicates the conference where the paper was presented."@en.
+<title> a rdf:Property, owl:ObjectProperty.
+<written-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "written by"@en;
+    rdfs:comment "Indicates the author who wrote the research paper."@en.
+<person> a owl:Class, rdfs:Class;
+    rdfs:label "Person"@en;
+    rdfs:comment "An individual who is involved in the conference reviewing process."@en.
+<name> a rdf:Property, owl:ObjectProperty.
+<email> a rdf:Property, owl:ObjectProperty.
+<reviewer> a owl:Class, rdfs:Class;
+    rdfs:label "Reviewer"@en;
+    rdfs:comment " An person responsible for evaluating the quality and relevance of a research paper submission."@en;
+    rdfs:subClassOf <person>.
+<writes> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "writes"@en.
+<expertise> a rdf:Property, owl:ObjectProperty.
+<submission> a owl:Class, rdfs:Class;
+    rdfs:label "Submission"@en;
+    rdfs:comment "The act of submitting a research paper for consideration at a conference. It represents the research paper in the conference review process."@en.
+<reviewed-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "reviewed by"@en;
+    rdfs:comment "Indicates the reviewer assigned to evaluate the submission. Only the last submission of a research paper can be evaluated."@en.
+<is-resubmission-of> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is resubmission of"@en;
+    rdfs:comment "Links a submission to another submission that it replaces. A research paper can be submitted repeatedly to the conference."@en.
+<submission-date> a rdf:Property, owl:ObjectProperty.
+<submitted-to> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "submitted to"@en;
+    rdfs:comment "Indicates the conference to which the research paper was submitted."@en.
+<status> a rdf:Property, owl:ObjectProperty.
