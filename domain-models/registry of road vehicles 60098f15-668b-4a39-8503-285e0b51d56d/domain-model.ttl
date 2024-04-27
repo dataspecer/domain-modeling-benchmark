@@ -1,0 +1,686 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+<insurance-contract> a owl:Class, rdfs:Class;
+    rdfs:label "Insurance Contract"@en;
+    rdfs:comment "An insurance contract concluded between the policyholder and the insurer."@en.
+<notification> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "notification"@en;
+    rdfs:comment "The form and place of notification of the claim."@en;
+    rdfs:domain <insurance-contract>.
+<has-insurer> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has insurer"@en;
+    rdfs:domain <insurance-contract>;
+    rdfs:range <insurer>.
+<payment-method> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "payment method"@en;
+    rdfs:domain <insurance-contract>.
+<insurance-duration> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "insurance duration"@en;
+    rdfs:comment "The duration of the insurance."@en;
+    rdfs:domain <insurance-contract>.
+<benefit-limit> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "benefit limit"@en;
+    rdfs:comment "The limit of the insurance benefit."@en;
+    rdfs:domain <insurance-contract>.
+<premium-amount> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "premium amount"@en;
+    rdfs:comment "The amount of the premium."@en;
+    rdfs:domain <insurance-contract>.
+<maturity> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "maturity"@en;
+    rdfs:domain <insurance-contract>.
+<odometer> a owl:Class, rdfs:Class;
+    rdfs:label "Odometer"@en;
+    rdfs:comment "Records the distance travelled by the road vehicle."@en.
+<motorcycle> a owl:Class, rdfs:Class;
+    rdfs:label "Motorcycle"@en;
+    rdfs:subClassOf <motorised-road-vehicle>.
+<technically-unfit-road-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Technically Unfit Road Vehicle"@en;
+    rdfs:comment "A road vehicle is technically unfit for use and must not be used in traffic when a technical inspection of a road vehicle reveals a dangerous defect, the operator of the road vehicle did not bring the road vehicle with the rectified serious defect to the technical inspection station for a repeat technical inspection in the period of 30 days from the date of the technical inspection where the serious defect was detected, or if the repeated technical inspection reveals that the defect to be rectified has been recurrently rectified."@en;
+    rdfs:subClassOf <road-vehicle>.
+<repeatedly-inspected-for-dangerous-defects-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "repeatedly inspected for dangerous defects by"@en;
+    rdfs:domain <technically-unfit-road-vehicle>;
+    rdfs:range <technical-inspection>.
+<road-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Road Vehicle"@en;
+    rdfs:comment "For the purposes of regulating the conditions of operation of vehicles on roads, a road vehicle is a motorised or non-motorised vehicle which is constructed for use on roads for the carriage of persons, animals or goods."@en;
+    rdfs:subClassOf <vehicle>.
+<has-engine> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has engine"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <engine>.
+<has-owner> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has owner"@en;
+    rdfs:comment "The person who owns the road vehicle."@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <person>.
+<coupling-device-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "coupling device type"@en;
+    rdfs:comment "The type of coupling device built into the road vehicle."@en;
+    rdfs:domain <road-vehicle>.
+<has-road-vehicle-defect> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has road vehicle defect"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <defect>.
+<has-odometer> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has odometer"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <odometer>.
+<type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "type"@en;
+    rdfs:comment "The type of a road vehicle as specified by the road vehicle manufacturer and the variant and version if specified by the road vehicle manufacturer."@en;
+    rdfs:domain <road-vehicle>.
+<purpose> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "purpose"@en;
+    rdfs:comment "The purpose for which the road vehicle is intended, which is a taxi service vehicle, a vehicle with right of way, a car rental vehicle for hire, a vehicle for general use, or a vehicle for the operation of road transport for hire by its operator."@en;
+    rdfs:domain <road-vehicle>.
+<inspected-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "inspected by"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <technical-inspection>.
+<has-vehicle-system> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has vehicle system"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <vehicle-system>.
+<trade-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "trade name"@en;
+    rdfs:comment "The trade name if specified by the road vehicle manufacturer."@en;
+    rdfs:domain <road-vehicle>.
+<has-bodywork> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has bodywork"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <bodywork>.
+<value-added-tax-paid> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "value added tax paid"@en;
+    rdfs:comment "Links the road vehicle to the value added tax paid on the acquisition of the road vehicle from another member state."@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <valued-added-tax-payment>.
+<dimensions> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "dimensions"@en;
+    rdfs:comment "The overall dimensions of the road vehicle."@en;
+    rdfs:domain <road-vehicle>.
+<is-listed-as-missing-or-stolen-in> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is listed as missing or stolen in"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <missing-or-stolen-road-vehicle-listing>.
+<has-structural-component> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has structural component"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <structural-component>.
+<has-separate-technical-unit> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has separate technical unit"@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <separate-technical-unit>.
+<has-operator> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has operator"@en;
+    rdfs:comment "The person who operates the vehicle."@en;
+    rdfs:domain <road-vehicle>;
+    rdfs:range <person>.
+<vehicle-identification-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "vehicle identification number"@en;
+    rdfs:comment "A unique identifier of a road vehicle."@en;
+    rdfs:domain <road-vehicle>.
+<factory-mark> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "factory mark"@en;
+    rdfs:comment "The manufacturer's factory mark as specified by the road vehicle manufacturer."@en;
+    rdfs:domain <road-vehicle>.
+<motorised-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Motorised vehicle"@en;
+    rdfs:comment "A motorised vehicle is a vehicle with an engine."@en;
+    rdfs:subClassOf <vehicle>.
+<special-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Special Vehicle"@en;
+    rdfs:comment "A special vehicle is a vehicle manufactured for purposes other than road traffic, which may be operated on roads if conditions are met."@en;
+    rdfs:subClassOf <vehicle>.
+<trailer> a owl:Class, rdfs:Class;
+    rdfs:label "Trailer"@en;
+    rdfs:comment "A trailer is a non-motorised road vehicle intended to be towed by another vehicle to which it is coupled in a combination."@en;
+    rdfs:subClassOf <non-motorised-road-vehicle>.
+<engine> a owl:Class, rdfs:Class;
+    rdfs:label "Engine"@en.
+<engine-power> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "engine power"@en;
+    rdfs:comment "The engine power specified by the road vehicle manufacturer in kW/rpm in the case of an internal combustion engine or in kW in the case of other engines."@en;
+    rdfs:domain <engine>.
+<engine-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "engine type"@en;
+    rdfs:comment "The type of engine specified by the manufacturer of the road vehicle."@en;
+    rdfs:domain <engine>.
+<fuel-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "fuel type"@en;
+    rdfs:comment "The fuel type of the road vehicle."@en;
+    rdfs:domain <engine>.
+<engine-displacement> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "engine displacement"@en;
+    rdfs:comment "The displacement of the internal combustion engine as specified by the manufacturer of the road vehicle in cm3."@en;
+    rdfs:domain <engine>.
+<emission-measurement-result> a owl:Class, rdfs:Class;
+    rdfs:label "Emission Measurement Result"@en.
+<included-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "included by"@en;
+    rdfs:comment "The inspection technician of the technical inspection station shall include the results of the emission measurement in the register of road vehicles."@en;
+    rdfs:domain <emission-measurement-result>;
+    rdfs:range <inspection-technician>.
+<technical-inspection-station> a owl:Class, rdfs:Class;
+    rdfs:label "Technical Inspection Station"@en;
+    rdfs:comment "A technical inspection station is a workplace specialised in carrying out technical inspections of road vehicles."@en.
+<operated-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "operated by"@en;
+    rdfs:comment "A technical inspection station may be operated by a legal or natural person who has a licence to operate it and a certificate issued by the regional authority."@en;
+    rdfs:domain <technical-inspection-station>;
+    rdfs:range <person>.
+<natural-person> a owl:Class, rdfs:Class;
+    rdfs:label "Natural Person"@en;
+    rdfs:subClassOf <person>.
+<first-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "first name"@en;
+    rdfs:domain <natural-person>.
+<asylum-granted> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "asylum granted"@en;
+    rdfs:comment "Specifies that the natural person has been granted asylum."@en;
+    rdfs:domain <natural-person>.
+<last-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "last name"@en;
+    rdfs:domain <natural-person>.
+<birth-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "birth number"@en;
+    rdfs:domain <natural-person>.
+<temporary-residence-address> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "temporary residence address"@en;
+    rdfs:comment "The address of the temporary residence of the person of at least 6 months or other authorised residence."@en;
+    rdfs:domain <natural-person>.
+<permanent-residence-address> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "permanent residence address"@en;
+    rdfs:comment "The address of the permanent residence of the natural person."@en;
+    rdfs:domain <natural-person>.
+<long-term-residence-address> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "long-term residence address"@en;
+    rdfs:comment "The address of the long-term residence of the person."@en;
+    rdfs:domain <natural-person>.
+<birth-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "birth date"@en;
+    rdfs:domain <natural-person>.
+<name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "name"@en;
+    rdfs:domain <natural-person>.
+<vehicle-deliverer> a owl:Class, rdfs:Class;
+    rdfs:label "Vehicle Deliverer"@en;
+    rdfs:comment "The natural person who delivered the vehicle for the technical inspection."@en;
+    rdfs:subClassOf <natural-person>.
+<limited-technically-fit-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Limited Technically Fit Vehicle"@en;
+    rdfs:comment "A road vehicle is technically fit for use only for 30 days from the date of the technical inspection, if a technical inspection detects a serious defect. Within this period, the operator of the road vehicle shall be obliged to bring the road vehicle with the rectified serious defect to the technical inspection station for a repeat technical inspection."@en;
+    rdfs:subClassOf <road-vehicle>.
+<repeatedly-inspected-for-serious-defects-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "repeatedly inspected for serious defects by"@en;
+    rdfs:domain <limited-technically-fit-vehicle>;
+    rdfs:range <technical-inspection>.
+<third-party-insurance> a owl:Class, rdfs:Class;
+    rdfs:label "Third Party Insurance"@en;
+    rdfs:comment "The insurance against liability for damage caused by the operation of the vehicle."@en.
+<based-on-contract> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "based on contract"@en;
+    rdfs:domain <third-party-insurance>;
+    rdfs:range <insurance-contract>.
+<interruption-period> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "interruption period"@en;
+    rdfs:comment "The period of interruption of insurance."@en;
+    rdfs:domain <third-party-insurance>.
+<termination-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "termination date"@en;
+    rdfs:comment "The date of termination of insurance of the road vehicle"@en;
+    rdfs:domain <third-party-insurance>.
+<commencement-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "commencement date"@en;
+    rdfs:comment "The date of commencement of insurance."@en;
+    rdfs:domain <third-party-insurance>.
+<change-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "change date"@en;
+    rdfs:comment "The date of change of insurance of the road vehicle."@en;
+    rdfs:domain <third-party-insurance>.
+<insures> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "insures"@en;
+    rdfs:comment "Connects the insurance against liability for damage caused by the operation of the connected vehicle."@en;
+    rdfs:domain <third-party-insurance>;
+    rdfs:range <road-vehicle>.
+<notification-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "notification date"@en;
+    rdfs:comment "The date of notification of data by the Insurers' Bureau."@en;
+    rdfs:domain <third-party-insurance>.
+<agricultural-tractor> a owl:Class, rdfs:Class;
+    rdfs:label "Agricultural Tractor"@en;
+    rdfs:subClassOf <special-vehicle>.
+<serious-defect> a owl:Class, rdfs:Class;
+    rdfs:label "Serious Defect"@en;
+    rdfs:comment "A defect which affects the operational characteristics of the vehicle, is liable to endanger road traffic, may adversely affect the environment or consists of a serious deficiency in the identification of the vehicle."@en;
+    rdfs:subClassOf <defect>.
+<structural-component> a owl:Class, rdfs:Class;
+    rdfs:label "Structural Component"@en;
+    rdfs:comment "A structural component of a vehicle is a component of the vehicle which must be type-approved independently of the vehicle if so provided for in the implementing legislation and which is subject to the technical requirements laid down in the implementing legislation. An example of a structural component of a vehicle is a lamp."@en.
+<has-structural-component-defect> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has structural component defect"@en;
+    rdfs:domain <structural-component>;
+    rdfs:range <defect>.
+<person> a owl:Class, rdfs:Class;
+    rdfs:label "Person"@en.
+<manufacturer> a owl:Class, rdfs:Class;
+    rdfs:label "Manufacturer"@en;
+    rdfs:comment "A manufacturer is a person who manufactures a vehicle, its system, component or separate technical unit or has it designed or manufactured and markets it under his own name or trademark or uses it for his own account."@en.
+<manufactures-vehicle> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "manufactures vehicle"@en;
+    rdfs:comment "Links a manufacturer to the manufactured vehicle. The manufacturer can manufacture it or has it designed or manufactured and market it under his own name or trademark or use it for his own account."@en;
+    rdfs:domain <manufacturer>;
+    rdfs:range <vehicle>.
+<manufactures-vehicle-system> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "manufactures vehicle system"@en;
+    rdfs:comment "Links a manufacturer to the manufactured vehicle system. The manufacturer can manufacture it or has it designed or manufactured and market it under his own name or trademark or use it for his own account."@en;
+    rdfs:domain <manufacturer>;
+    rdfs:range <vehicle-system>.
+<manufactures-structural-component> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "manufactures structural component"@en;
+    rdfs:comment "Links a manufacturer to the manufactured structural component. The manufacturer can manufacture it or has it designed or manufactured and market it under his own name or trademark or use it for his own account."@en;
+    rdfs:domain <manufacturer>;
+    rdfs:range <structural-component>.
+<manufactures-separate-technical-unit> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "manufactures separate technical unit"@en;
+    rdfs:comment "Links a manufacturer to the manufactured separate technical unit. The manufacturer can manufacture it or has it designed or manufactured and market it under his own name or trademark or use it for his own account."@en;
+    rdfs:domain <manufacturer>;
+    rdfs:range <separate-technical-unit>.
+<non-motorised-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Non-motorised Vehicle"@en;
+    rdfs:comment "A non-motorised vehicle is a vehicle without an engine."@en;
+    rdfs:subClassOf <vehicle>.
+<interchangeable-towed-equipment> a owl:Class, rdfs:Class;
+    rdfs:label "Interchangeable Towed Equipment"@en;
+    rdfs:subClassOf <special-vehicle>.
+<carrier-of-working-adaptors> a owl:Class, rdfs:Class;
+    rdfs:label "Carrier of Working Adaptors"@en;
+    rdfs:subClassOf <special-vehicle>.
+<work-machine-carried> a owl:Class, rdfs:Class;
+    rdfs:label "Work Machine Carried"@en;
+    rdfs:subClassOf <special-vehicle>.
+<special-tractor> a owl:Class, rdfs:Class;
+    rdfs:label "Special Tractor"@en;
+    rdfs:subClassOf <special-vehicle>.
+<forestry-tractor-trailer> a owl:Class, rdfs:Class;
+    rdfs:label "Forestry Tractor Trailer"@en;
+    rdfs:subClassOf <special-vehicle>.
+<work-machine-attached> a owl:Class, rdfs:Class;
+    rdfs:label "Work Machine Attached"@en;
+    rdfs:subClassOf <special-vehicle>.
+<self-propelled-work-machine> a owl:Class, rdfs:Class;
+    rdfs:label "Self-propelled Work Machine"@en;
+    rdfs:subClassOf <special-vehicle>.
+<insurer> a owl:Class, rdfs:Class;
+    rdfs:label "Insurer"@en;
+    rdfs:comment " The insurer is an insurance company authorised to operate the third party insurance in the contract."@en.
+<is-authorised-to-operate> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is authorised to operate"@en;
+    rdfs:domain <insurer>;
+    rdfs:range <third-party-insurance>.
+<technically-fit-road-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Technically Fit Road Vehicle"@en;
+    rdfs:comment "A road vehicle is technically fit for use on the road if no defects or only minor defects have been found during the road vehicle technical inspection. If the technical inspection has revealed minor defects, the operator of the road vehicle shall remedy them."@en;
+    rdfs:subClassOf <road-vehicle>.
+<separate-technical-unit> a owl:Class, rdfs:Class;
+    rdfs:label "Separate Technical Unit"@en;
+    rdfs:comment "A separate technical unit of a vehicle is a component, the type of which may be approved independently of the vehicle but only in relation to one or more vehicle types, if so provided for in the implementing legislation, and which is subject to the technical requirements laid down in the implementing legislation. An independent technical unit of a vehicle is, for example, the rear bumper of a vehicle, or a fixed or swap body of a vehicle."@en.
+<has-technical-unit-defect> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has technical unit defect"@en;
+    rdfs:domain <separate-technical-unit>;
+    rdfs:range <defect>.
+<business-natural-person> a owl:Class, rdfs:Class;
+    rdfs:label "Business Natural Person"@en;
+    rdfs:comment "A person engaged in business."@en;
+    rdfs:subClassOf <natural-person>.
+<personal-identification-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "personal identification number"@en;
+    rdfs:domain <business-natural-person>.
+<office-address> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "office address"@en;
+    rdfs:comment "The address of the registered office of the natural person engaged in business"@en;
+    rdfs:domain <business-natural-person>.
+<distinguishing-supplement> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "distinguishing supplement"@en;
+    rdfs:domain <business-natural-person>.
+<business-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "business name"@en;
+    rdfs:domain <business-natural-person>.
+<incomplete-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Incomplete Vehicle"@en;
+    rdfs:comment "An incomplete vehicle is any vehicle that must undergo at least one further stage of completion in order to meet the relevant technical requirements."@en;
+    rdfs:subClassOf <vehicle>.
+<defect> a owl:Class, rdfs:Class;
+    rdfs:label "Defect"@en.
+<off-road-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Off-road Vehicle"@en;
+    rdfs:comment "A vehicle designed primarily for off-road driving."@en;
+    rdfs:subClassOf <special-vehicle>.
+<passenger-car> a owl:Class, rdfs:Class;
+    rdfs:label "Passenger Car"@en;
+    rdfs:subClassOf <motorised-road-vehicle>.
+<forestry-tractor> a owl:Class, rdfs:Class;
+    rdfs:label "Forestry Tractor"@en;
+    rdfs:subClassOf <special-vehicle>.
+<dangerous-defect> a owl:Class, rdfs:Class;
+    rdfs:label "Dangerous Defect"@en;
+    rdfs:comment "A defect which poses an immediate threat to the safety of the road vehicle, to road traffic or to the environment."@en;
+    rdfs:subClassOf <defect>.
+<single-axle-tractor> a owl:Class, rdfs:Class;
+    rdfs:label "Single-axle Tractor"@en;
+    rdfs:subClassOf <special-vehicle>.
+<vehicle-system> a owl:Class, rdfs:Class;
+    rdfs:label "Vehicle System"@en;
+    rdfs:comment "Vehicle system means any structural system of a vehicle which is subject to the technical requirements laid down in an implementing regulation. An example of a vehicle system is brakes or emission reduction devices."@en.
+<has-vehicle-system-defect> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has vehicle system defect"@en;
+    rdfs:domain <vehicle-system>;
+    rdfs:range <defect>.
+<emission-measurement> a owl:Class, rdfs:Class;
+    rdfs:label "Emission Measurement"@en;
+    rdfs:comment "Emissions measurement as part of the technical inspection can be carried out at the emission measurement station before other inspection tasks are carried out at the technical inspection station."@en.
+<is-part-of-technical-inspection> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is part of technical inspection"@en;
+    rdfs:domain <emission-measurement>;
+    rdfs:range <technical-inspection>.
+<emission-measurement-report-handed-over-to> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "emission measurement report handed over to"@en;
+    rdfs:domain <emission-measurement>;
+    rdfs:range <vehicle-deliverer>.
+<has-result-of-measurement> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has result of measurement"@en;
+    rdfs:domain <emission-measurement>;
+    rdfs:range <emission-measurement-result>.
+<date-of-emission-measurement> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "date of emission measurement"@en;
+    rdfs:comment "The date on which the emission measurement was carried out."@en;
+    rdfs:domain <emission-measurement>.
+<special-tractor-trailer> a owl:Class, rdfs:Class;
+    rdfs:label "Special Tractor Trailer"@en;
+    rdfs:subClassOf <special-vehicle>.
+<vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Vehicle"@en;
+    rdfs:comment "A vehicle is a machine, usually with wheels and an engine, used for transporting people or goods, especially on land."@en.
+<vehicle-category> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "vehicle category"@en;
+    rdfs:comment "A vehicle category is a group of vehicles which have the same technical conditions laid down in an implementing regulation. Road vehicles and special vehicles are divided into categories L, M, N, O, T, C, R, S and Z."@en;
+    rdfs:domain <vehicle>.
+<lorry> a owl:Class, rdfs:Class;
+    rdfs:label "Lorry"@en;
+    rdfs:subClassOf <motorised-road-vehicle>.
+<missing-or-stolen-road-vehicle-listing> a owl:Class, rdfs:Class;
+    rdfs:label "Missing or Stolen Road Vehicle Listing"@en;
+    rdfs:comment "Listing of a road vehicle as missing or stolen in the Schengen Information System or in the information system of the state police or other information established by another procedure."@en.
+<bus> a owl:Class, rdfs:Class;
+    rdfs:label "Bus"@en;
+    rdfs:subClassOf <motorised-road-vehicle>.
+<motorised-road-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Motorised Road Vehicle"@en;
+    rdfs:subClassOf <road-vehicle>, <motorised-vehicle>.
+<max-technically-permissible-combination-mass> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max technically permissible combination mass"@en;
+    rdfs:comment "The maximum technically permissible mass of the combination of the motorised road vehicle and the trailer."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-permissible-operating-weight> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max permissible operating weight"@en;
+    rdfs:comment "Maximum permissible operating weight of the motorised road vehicle."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-permissible-combination-mass> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max permissible combination mass"@en;
+    rdfs:comment "The maximum permissible mass of the combination of the motorised road vehicle and the trailer."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-permissible-trailer-mass> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max permissible trailer mass"@en;
+    rdfs:comment "The maximum permissible mass of the trailer."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-technically-permissible-weight> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max technically permissible weight"@en;
+    rdfs:comment "The maximum technically permissible weight of the motorised road vehicle."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-permissible-weight-per-axle> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max permissible weight per axle"@en;
+    rdfs:comment "The maximum permissible weight per axle of the motorised road vehicle."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-technically-permissible-weight-per-axle> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max technically permissible weight per axle"@en;
+    rdfs:comment "The maximum technically permissible weight per axle of the motorised road vehicle."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-technically-permissible-trailer-mass> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max technically permissible trailer mass"@en;
+    rdfs:comment "Maximum technically permissible mass of the trailer."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<max-permissible-weight> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "max permissible weight"@en;
+    rdfs:comment "The maximum permissible weight of the motorised road vehicle."@en;
+    rdfs:domain <motorised-road-vehicle>.
+<registration-plate> a owl:Class, rdfs:Class;
+    rdfs:label "Registration Plate"@en;
+    rdfs:comment "A registration plate is a metal or plastic plate assigned to a road vehicle for official identification purposes"@en.
+<registration-plate-assignment-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "registration plate assignment date"@en;
+    rdfs:comment "The date on which the registration plate was assigned to the road vehicle."@en;
+    rdfs:domain <registration-plate>.
+<assigned-to> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "assigned to"@en;
+    rdfs:comment "A registration plate is assigned to a road vehicle after the registration of the road vehicle into the register."@en;
+    rdfs:domain <registration-plate>;
+    rdfs:range <road-vehicle>.
+<registration-identifier> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "registration identifier"@en;
+    rdfs:comment "The numberic or alphanumeric registration identifier on the registration plate that uniquely identifies the road vehicle within the registration country"@en;
+    rdfs:domain <registration-plate>.
+<powered-wheelchair> a owl:Class, rdfs:Class;
+    rdfs:label "Powered Wheelchair"@en;
+    rdfs:comment "A road vehicle with width or length exceeding 1.4 m, design speed exceeding 15 km.h-1 or maximum permissible weight exceeding 450 kg."@en;
+    rdfs:subClassOf <motorised-road-vehicle>.
+<municipal-authority> a owl:Class, rdfs:Class;
+    rdfs:label "Municipal Authority"@en;
+    rdfs:comment "The municipal authority of a municipality with extended competence."@en.
+<registers> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "registers"@en;
+    rdfs:comment "The municipal authority registers a road vehicle in the register of road vehicles on the basis of a written application by the owner of the road vehicle."@en;
+    rdfs:domain <municipal-authority>;
+    rdfs:range <road-vehicle>.
+<issues-certificate> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "issues-certificate"@en;
+    rdfs:comment "When registering a road vehicle in the register of road vehicles, the municipal authority of the municipality with extended competence shall issue a registration certificate of the road vehicle to the applicant."@en;
+    rdfs:domain <municipal-authority>;
+    rdfs:range <registration-certificate>.
+<assigns-plate> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "assigns plate"@en;
+    rdfs:comment "The municipal authority of the municipality with extended competence, when registering a road vehicle in the register of road vehicles, shall further assign a registration plate to the road vehicle."@en;
+    rdfs:domain <municipal-authority>;
+    rdfs:range <registration-plate>.
+<legal-person-branch> a owl:Class, rdfs:Class;
+    rdfs:label "Legal Person Branch"@en;
+    rdfs:comment "A branch of a legal person."@en.
+<is-branch-of> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is branch of"@en;
+    rdfs:domain <legal-person-branch>;
+    rdfs:range <legal-person>.
+<branch-location> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "branch location"@en;
+    rdfs:comment "The location of the branch"@en;
+    rdfs:domain <legal-person-branch>.
+<inspection-technician> a owl:Class, rdfs:Class;
+    rdfs:label "Inspection Technician"@en.
+<is-technician-of> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is technician of"@en;
+    rdfs:domain <inspection-technician>;
+    rdfs:range <technical-inspection-station>.
+<bodywork> a owl:Class, rdfs:Class;
+    rdfs:label "Bodywork"@en.
+<bodywork-color> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "bodywork color"@en;
+    rdfs:domain <bodywork>.
+<bodywork-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "bodywork type"@en;
+    rdfs:domain <bodywork>.
+<volume> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "volume"@en;
+    rdfs:comment "The volume of the box or tank of the road vehicle."@en;
+    rdfs:domain <bodywork>.
+<loading-dimensions> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "loading dimensions"@en;
+    rdfs:comment "The dimensions of the loading area of the road vehicle."@en;
+    rdfs:domain <bodywork>.
+<bodywork-serial-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "bodywork serial number"@en;
+    rdfs:domain <bodywork>.
+<number-of-seats> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "number of seats"@en;
+    rdfs:comment "The number of seats and standing places or beds in the road vehicle."@en;
+    rdfs:domain <bodywork>.
+<non-motorised-road-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Non-motorised Road Vehicle"@en;
+    rdfs:subClassOf <road-vehicle>, <non-motorised-vehicle>.
+<agricultural-tractor-trailer> a owl:Class, rdfs:Class;
+    rdfs:label "Agricultural Tractor Trailer"@en;
+    rdfs:subClassOf <special-vehicle>.
+<technical-inspection> a owl:Class, rdfs:Class;
+    rdfs:label "Technical Inspection"@en;
+    rdfs:comment "A road vehicle technical inspection is an inspection of its roadworthiness which includes the technical condition and functioning of a road vehicle, its systems, components and separate technical units and their environmental impact or a registration test of a road vehicle."@en.
+<recorded-travelled-distance> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "recorded travelled distance"@en;
+    rdfs:comment "The distance travelled on the odometer of the road vehicle at the date of the technical inspection."@en;
+    rdfs:domain <technical-inspection>.
+<carried-out-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "carried out by"@en;
+    rdfs:comment "The technical inspection station that carried out the technical inspection."@en;
+    rdfs:domain <technical-inspection>;
+    rdfs:range <technical-inspection-station>.
+<technical-inspection-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "technical  inspection date"@en;
+    rdfs:comment "The date on which the technical inspection was carried out."@en;
+    rdfs:domain <technical-inspection>.
+<technical-inspection-report-handed-over-to> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "technical inspection report handed over to"@en;
+    rdfs:domain <technical-inspection>;
+    rdfs:range <vehicle-deliverer>.
+<detects> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "detects"@en;
+    rdfs:comment "A technical inspection detects defects."@en;
+    rdfs:domain <technical-inspection>;
+    rdfs:range <defect>.
+<technical-inspection-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "technical inspection type"@en;
+    rdfs:comment "The type of technical inspection carried out."@en;
+    rdfs:domain <technical-inspection>.
+<other-operations-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "other operations date"@en;
+    rdfs:comment "The date on which the road vehicle was brought in for the other checking operations."@en;
+    rdfs:domain <technical-inspection>.
+<technical-inspection-validity> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "technical inspection validity"@en;
+    rdfs:comment "The date of validity of the technical inspection."@en;
+    rdfs:domain <technical-inspection>.
+<inspection-sticker> a owl:Class, rdfs:Class;
+    rdfs:label "Inspection Sticker"@en;
+    rdfs:comment "Indicating the month and year of the next periodic technical inspection of the road vehicle."@en.
+<affixed-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "affixed by"@en;
+    rdfs:comment "Specifies the technical inspection station that affixed the inspection sticker."@en;
+    rdfs:domain <inspection-sticker>;
+    rdfs:range <technical-inspection-station>.
+<removed-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "removed by"@en;
+    rdfs:comment "Upon detection of a dangerous defect, the technical inspection station shall remove the technical inspection sticker from the rear plate of the registration plate."@en;
+    rdfs:domain <inspection-sticker>;
+    rdfs:range <technical-inspection-station>.
+<affixed-on> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "affixed on"@en;
+    rdfs:comment "The inspection sticker is affixed on the rear plate of the registration plate of the road vehicle."@en;
+    rdfs:domain <inspection-sticker>;
+    rdfs:range <technically-fit-road-vehicle>.
+<next-inspection-month> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "next inspection month"@en;
+    rdfs:comment "The month of the next technical inspection of the road vehicle."@en;
+    rdfs:domain <inspection-sticker>.
+<next-inspection-year> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "next inspection year"@en;
+    rdfs:comment "The year of the next technical inspection of the road vehicle."@en;
+    rdfs:domain <inspection-sticker>.
+<single-axle-tractor-trailer> a owl:Class, rdfs:Class;
+    rdfs:label "Single-axle Tractor Trailer"@en;
+    rdfs:subClassOf <special-vehicle>.
+<registration-certificate> a owl:Class, rdfs:Class;
+    rdfs:label "Registration Certificate"@en;
+    rdfs:comment "A registration certificate is an official document providing proof of registration of a vehicle in the register."@en.
+<last-registration-certificate-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "last registration certificate number"@en;
+    rdfs:comment "The number of the registration certificate of the road vehicle or similar document issued in the state of last registration."@en;
+    rdfs:domain <registration-certificate>.
+<first-registration-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "first registration date"@en;
+    rdfs:comment "The date of the first registration of the road vehicle which can be a registration in the same or another country."@en;
+    rdfs:domain <registration-certificate>.
+<registration-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "registration date"@en;
+    rdfs:comment "The date of registration of the road vehicle."@en;
+    rdfs:domain <registration-certificate>.
+<last-registration-plate-identifier> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "last registration plate identifier"@en;
+    rdfs:comment "The identifier on the registration plate assigned to the road vehicle on the last registration, if the state of last registration is different."@en;
+    rdfs:domain <registration-certificate>.
+<last-registration-state> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "last registration state"@en;
+    rdfs:comment "The state of the last registration of the road vehicle."@en;
+    rdfs:domain <registration-certificate>.
+<issued-for> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "issued for"@en;
+    rdfs:comment "A registration certificate is issued for the road vehicle after the registration of the road vehicle into the register."@en;
+    rdfs:domain <registration-certificate>;
+    rdfs:range <road-vehicle>.
+<certificate-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "certificate number"@en;
+    rdfs:comment "The number of the certificate which identifies the certificate."@en;
+    rdfs:domain <registration-certificate>.
+<special-purpose-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Special Purpose Vehicle"@en;
+    rdfs:subClassOf <motorised-road-vehicle>.
+<legal-person> a owl:Class, rdfs:Class;
+    rdfs:label "Legal Person"@en;
+    rdfs:subClassOf <person>.
+<office-address> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "office address"@en;
+    rdfs:domain <legal-person>.
+<personal-identification-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "personal identification number"@en;
+    rdfs:domain <legal-person>.
+<business-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "business name"@en;
+    rdfs:domain <legal-person>.
+<minor-defect> a owl:Class, rdfs:Class;
+    rdfs:label "Minor Defect"@en;
+    rdfs:comment "A defect which does not significantly affect the operational characteristics of the vehicle, road safety or the environment."@en;
+    rdfs:subClassOf <defect>.
+<green-card> a owl:Class, rdfs:Class;
+    rdfs:label "Green Card"@en;
+    rdfs:comment "Green card means an international certificate proving that the vehicle has been covered by a third party insurance against liability for damage cause by the operation of the vehicle specified in the certificate."@en.
+<is-proof-of-insurance> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is proof of insurance"@en;
+    rdfs:comment "Specifies the third party insurance for which it is a proof.\n"@en;
+    rdfs:domain <green-card>;
+    rdfs:range <third-party-insurance>.
+<is-proof-for-vehicle> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is proof for vehicle"@en;
+    rdfs:comment "Specifies the vehicle that has been covered by the third party insurance."@en;
+    rdfs:domain <green-card>;
+    rdfs:range <road-vehicle>.
+<valued-added-tax-payment> a owl:Class, rdfs:Class;
+    rdfs:label "Valued Added Tax Payment"@en.
+<snow-vehicle> a owl:Class, rdfs:Class;
+    rdfs:label "Snow Vehicle"@en;
+    rdfs:comment "A vehicle designed primarily for driving on snow."@en;
+    rdfs:subClassOf <special-vehicle>.
+<policyholder> a owl:Class, rdfs:Class;
+    rdfs:label "Policyholder"@en;
+    rdfs:comment "The policyholder is the person who has concluded the insurance contract with the insurer."@en.
+<concluded-contract> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "concluded contract"@en;
+    rdfs:domain <policyholder>;
+    rdfs:range <third-party-insurance>.
