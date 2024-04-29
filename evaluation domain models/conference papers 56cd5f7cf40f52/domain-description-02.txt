@@ -1,6 +1,6 @@
 The domain modeled by this framework revolves around the academic world of conferences, research papers, submissions, and the individuals involved in these activities. It captures the intricate details of the academic conference process from various perspectives.
 
-Let's start with the concept of a conference. Viewed as an event where research papers are presented and discussed, a conference is a pivotal element in academic discourse. It holds a specific year and location, signifying when and where these intellectual gatherings take place.
+Let's start with the concept of a conference. Viewed as an event where research papers are presented and discussed, a conference is a pivotal element in academic discourse. It holds a specific year and location, signifying when and where these intellectual gatherings take place. The conference name is a unique identification of the conference in the scientific community.
 
 Delving into the realm of academic writing, the research paper emerges as a key component. It's essentially a document presenting original research findings, carrying characteristics such as a publication year, an abstract, and a title. Each research paper is closely tied to a conference where it is presented, creating a link between the event and the written work.
 
