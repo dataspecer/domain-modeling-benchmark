@@ -4,7 +4,7 @@
 
 <student><enrolled-in>A student is <natural-person>a natural person</natural-person> who is enrolled in a study program.</enrolled-in></student>
 
-<has-academic-community>A college has its own <academic-community>academic community</has-academic-community> made up of its academic staff and students enrolled in its study programmes</academic-community>. <is-staff-member-of-academic-commumity><is-student-member-of-academic-community>The academic staff and students are <academic-community-member><is-member-of-academic-community>members of the academic community</is-member-of-academic-community></academic-community-member>.</is-student-member-of-academic-community></is-staff-member-of-academic-commumity>
+<has-academic-community>A college has its own <academic-community>academic community</has-academic-community> made up of its academic staff and students enrolled in its study programmes</academic-community>. <is-staff-member-of-academic-community><is-student-member-of-academic-community>The academic staff and students are <academic-community-member><is-member-of-academic-community>members of the academic community</is-member-of-academic-community></academic-community-member>.</is-student-member-of-academic-community></is-staff-member-of-academic-community>
 
 <structured-into>A college is structured into its <body>bodies</body>.</structured-into> <public-college-body><self-governing-academic-body>The self-governing academic bodies of a public college shall be</self-governing-academic-body></public-college-body>
 a) the academic senate,
