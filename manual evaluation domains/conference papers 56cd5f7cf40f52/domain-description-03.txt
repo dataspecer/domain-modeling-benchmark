@@ -1,4 +1,3 @@
-
 The domain we're looking at is all about the world of academic conferences, particularly focusing on research papers, their authors, reviewers, and the submission process. Let's dive in to understand each part.
 
 At the heart of this domain are conferences, which are events where research papers are presented and discussed. Every conference has a name, a location where it's held, and a specific year when it takes place. These are the key pieces that define any conference.
