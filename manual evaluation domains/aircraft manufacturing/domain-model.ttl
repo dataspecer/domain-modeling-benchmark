@@ -1,0 +1,110 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+<https://my-model-l789ql.iri.todo.com/entities/aircraft-model> a owl:Class, rdfs:Class;
+    rdfs:label "Aircraft Model"@en;
+    rdfs:comment "Represents different models of aircraft."@en.
+<https://my-model-l789ql.iri.todo.com/entities/aircraft-model-code> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "aircraft model code"@en;
+    rdfs:comment "A unique model code."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft-model>.
+<https://my-model-l789ql.iri.todo.com/entities/aircraft-model-description> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "aircraft model description"@en;
+    rdfs:comment "A detailed description of the model."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft-model>.
+<https://my-model-l789ql.iri.todo.com/entities/incorporates> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "incorporates"@en;
+    rdfs:comment "Indicates that an aircraft model incorporates various part models in its design."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft-model>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/part-model>.
+<https://my-model-l789ql.iri.todo.com/entities/customer> a owl:Class, rdfs:Class;
+    rdfs:label "Customer"@en;
+    rdfs:comment "Represents the clients who purchase the finished aircraft."@en;
+    rdfs:subClassOf <https://my-model-l789ql.iri.todo.com/entities/party>.
+<https://my-model-l789ql.iri.todo.com/entities/purchases> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "purchases"@en;
+    rdfs:comment "Represents the purchase of aircraft by customers."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/customer>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/aircraft>.
+<https://my-model-l789ql.iri.todo.com/entities/customer-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "customer name"@en;
+    rdfs:comment "The name of the customer which uniquely identifies the customer."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/customer>.
+<https://my-model-l789ql.iri.todo.com/entities/part-model> a owl:Class, rdfs:Class;
+    rdfs:label "Part Model"@en;
+    rdfs:comment "Represents the design model for individual parts."@en.
+<https://my-model-l789ql.iri.todo.com/entities/part-model-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "part model number"@en;
+    rdfs:comment "A unique identifier for the part model."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/part-model>.
+<https://my-model-l789ql.iri.todo.com/entities/part-model-description> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "part model description"@en;
+    rdfs:comment "A brief description of the part model."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/part-model>.
+<https://my-model-l789ql.iri.todo.com/entities/supply> a owl:Class, rdfs:Class;
+    rdfs:label "Supply"@en;
+    rdfs:comment "Encompasses the parts, required for aircraft manufacturing, supplied by a given supplier."@en.
+<https://my-model-l789ql.iri.todo.com/entities/supplied-for> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "supplied for"@en;
+    rdfs:comment "Shows that each supply is dedicated to the manufacturing of a specific aircraft."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/supply>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/aircraft>.
+<https://my-model-l789ql.iri.todo.com/entities/includes> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "includes"@en;
+    rdfs:comment "Represents a relationship where a supplier supplies a supply of different parts."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/supply>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/part>.
+<https://my-model-l789ql.iri.todo.com/entities/part> a owl:Class, rdfs:Class;
+    rdfs:label "Part"@en;
+    rdfs:comment "Represents individual components used in the construction of an aircraft."@en.
+<https://my-model-l789ql.iri.todo.com/entities/part-description> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "part description"@en;
+    rdfs:comment "A brief description of the part."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/part>.
+<https://my-model-l789ql.iri.todo.com/entities/part-serial-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "part serial number"@en;
+    rdfs:comment "A unique identifier of the part."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/part>.
+<https://my-model-l789ql.iri.todo.com/entities/designed-as-part-model> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "designed as part model"@en;
+    rdfs:comment "Links each part to its specific model, indicating the design it follows."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/part>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/part-model>.
+<https://my-model-l789ql.iri.todo.com/entities/supplier> a owl:Class, rdfs:Class;
+    rdfs:label "Supplier"@en;
+    rdfs:comment "Represents entities that provide parts for aircraft manufacturing."@en;
+    rdfs:subClassOf <https://my-model-l789ql.iri.todo.com/entities/party>.
+<https://my-model-l789ql.iri.todo.com/entities/supplies> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "supplies"@en;
+    rdfs:comment "Represents a relationship where a supplier supplies a supply of different parts."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/supplier>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/supply>.
+<https://my-model-l789ql.iri.todo.com/entities/party> a owl:Class, rdfs:Class;
+    rdfs:label "Party"@en;
+    rdfs:comment "Represents a generic subject involved in the aircraft manufacturing process."@en.
+<https://my-model-l789ql.iri.todo.com/entities/party-code> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "party code"@en;
+    rdfs:comment "A unique identifier to refer to the party in the business communication and documentation."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/party>.
+<https://my-model-l789ql.iri.todo.com/entities/aircraft> a owl:Class, rdfs:Class;
+    rdfs:label "Aircraft"@en;
+    rdfs:comment "Represents the final manufactured product."@en.
+<https://my-model-l789ql.iri.todo.com/entities/aircraft-serial-number> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "aircraft serial number"@en;
+    rdfs:comment "A unique identifier for each aircraft."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft>.
+<https://my-model-l789ql.iri.todo.com/entities/manufacturing-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "manufacturing date"@en;
+    rdfs:comment "The date when the aircraft was manufactured."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft>.
+<https://my-model-l789ql.iri.todo.com/entities/consists-of> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "consists of"@en;
+    rdfs:comment "Indicates that an aircraft consists of multiple parts."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/part>.
+<https://my-model-l789ql.iri.todo.com/entities/designed-as> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "designed as"@en;
+    rdfs:comment "Links each aircraft to its specific model, indicating the design it follows."@en;
+    rdfs:domain <https://my-model-l789ql.iri.todo.com/entities/aircraft>;
+    rdfs:range <https://my-model-l789ql.iri.todo.com/entities/aircraft-model>.

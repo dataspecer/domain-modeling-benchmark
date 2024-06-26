@@ -1,0 +1,215 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+<https://my-model-vhfk9.iri.todo.com/entities/zoologist> a owl:Class, rdfs:Class;
+    rdfs:label "Zoologist"@en;
+    rdfs:comment "A specialised kind of staff member of a zoological garden."@en;
+    rdfs:subClassOf <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/assigned-to-as-zoologist> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "assigned to as zoologist"@en;
+    rdfs:comment "Zoologists are assigned to enlosures for which they are responsible."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/zoologist>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
+<https://my-model-vhfk9.iri.todo.com/entities/species> a owl:Class, rdfs:Class;
+    rdfs:label "Species"@en;
+    rdfs:comment "Species are used to classify animals, each possessing unique biological and ecological characteristics."@en.
+<https://my-model-vhfk9.iri.todo.com/entities/species-common-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "species common name"@en;
+    rdfs:comment "A characterization of species that specifies how visitors usually refer to the species."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/iucn-status> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "IUCN status"@en;
+    rdfs:comment "Provides insight into the conservation priority of species, influencing habitat management and breeding programs.."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/resident-of> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "resident of"@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
+<https://my-model-vhfk9.iri.todo.com/entities/reproductive-age> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "reproductive age"@en;
+    rdfs:comment "The age at which the species is capable of reproducing, which helps in planning breeding programs."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/species-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "species name"@en;
+    rdfs:comment "A characterization of animal species that adheres to international taxonomic standards, ensuring uniformity across scientific and conservation discourse."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/natural-breeding-time> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "natural breeding time"@en;
+    rdfs:comment "Specific time of year when the animals of that species naturally breeds, which can influence how enclosures are managed and when animals are introduced for mating."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/gestation-period> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "gestation period"@en;
+    rdfs:comment "The length of pregnancy in viviparous animals, which is important for monitoring and providing care during this critical period."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/climate-conditions> a owl:Class, rdfs:Class;
+    rdfs:label "Climate Conditions"@en;
+    rdfs:comment "Climate conditions are a blend of various controlled environmental factors including temperature, humidity, lighting, and ventilation. These conditions are essential for mimicking the natural habitat of animals as closely as possible, which not only ensures their physical health but also supports their psychological well-being by encouraging natural behaviors and physiological functions."@en.
+<https://my-model-vhfk9.iri.todo.com/entities/humidity-level> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "humidity level"@en;
+    rdfs:comment "Humidity levels are vital, especially for species from tropical or aquatic environments, as it affects skin health, hydration, and overall comfort."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/climate-conditions>.
+<https://my-model-vhfk9.iri.todo.com/entities/temperature> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "temperature"@en;
+    rdfs:comment "Temperature is the most critical element in an enclosure's climate conditions. Each species has a specific thermal preference based on its natural habitat, which needs to be mimicked in captivity for optimal health. Many animal species, particularly reptiles, require a range of temperatures within their enclosure to regulate their body temperature by moving between warmer and cooler areas."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/climate-conditions>.
+<https://my-model-vhfk9.iri.todo.com/entities/light-cycles> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "light cycles"@en;
+    rdfs:comment "Ensuring that light cycles (day and night) are consistent with the natural light patterns of an animal's native habitat helps maintain normal circadian rhythms, which are crucial for feeding, sleeping, and reproductive behaviors."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/climate-conditions>.
+<https://my-model-vhfk9.iri.todo.com/entities/ultraviolet-light> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "ultraviolet light"@en;
+    rdfs:comment "Many species, particularly reptiles, require exposure to ultraviolet light to synthesize vitamin D3, essential for calcium metabolism. The absence of adequate UV lighting can lead to health problems like metabolic bone disease."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/climate-conditions>.
+<https://my-model-vhfk9.iri.todo.com/entities/ventilation> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "ventilation"@en;
+    rdfs:comment "Proper ventilation is essential for maintaining air quality and appropriate climate conditions within an enclosure."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/climate-conditions>.
+<https://my-model-vhfk9.iri.todo.com/entities/oviparous-species> a owl:Class, rdfs:Class;
+    rdfs:label "Oviparous Species"@en;
+    rdfs:comment "Species that laid eggs."@en;
+    rdfs:subClassOf <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/number-of-laid-eggs> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "number of laid eggs"@en;
+    rdfs:comment "The number of eggs typically laid at one time, which affects incubation practices."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/oviparous-species>.
+<https://my-model-vhfk9.iri.todo.com/entities/caretaker> a owl:Class, rdfs:Class;
+    rdfs:label "Caretaker"@en;
+    rdfs:comment "A specialised kind of staff member of a zoological garden."@en;
+    rdfs:subClassOf <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/assigned-as-caretaker> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "assigned as caretaker"@en;
+    rdfs:comment "Caretakers can be assigned to more enclosures, and they are responsible for daily care and behavioral training of the animals in the enclosure."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/caretaker>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
+<https://my-model-vhfk9.iri.todo.com/entities/veterinarian> a owl:Class, rdfs:Class;
+    rdfs:label "Veterinarian"@en;
+    rdfs:comment "A specialised kind of staff member of a zoological garden."@en;
+    rdfs:subClassOf <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/responsible-for> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "responsible for"@en;
+    rdfs:comment "Veterinarians are responsible for medical treatment of particular species. Therefore, they are not assigned to enclosures or individual animals but species."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/veterinarian>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/animal> a owl:Class, rdfs:Class;
+    rdfs:label "Animal"@en;
+    rdfs:comment "An animal is the central entity in a zoological garden."@en.
+<https://my-model-vhfk9.iri.todo.com/entities/has-specified-diet> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has specified diet"@en;
+    rdfs:comment "An animal has a specified diet which is crucial for managing its welfare and conservation status of the animal."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/animal>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/diet>.
+<https://my-model-vhfk9.iri.todo.com/entities/classified-by> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "classified by"@en;
+    rdfs:comment "An animal is classified by species."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/animal>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/animal-name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "animal name"@en;
+    rdfs:comment "Each animal has a name which is not unique but our staff uses to refer to them and we also present animal names to our visitors."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/animal>.
+<https://my-model-vhfk9.iri.todo.com/entities/reintroduction-conservation-program> a owl:Class, rdfs:Class;
+    rdfs:label "Reintroduction Conservation Program"@en;
+    rdfs:comment "A conservation program that reintroduces specific animals."@en;
+    rdfs:subClassOf <https://my-model-vhfk9.iri.todo.com/entities/conservation-program>.
+<https://my-model-vhfk9.iri.todo.com/entities/is-part-of-program> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "is part of program"@en;
+    rdfs:comment "Specific animals may be part of reintroduction conservation programs."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/reintroduction-conservation-program>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/animal>.
+<https://my-model-vhfk9.iri.todo.com/entities/diet> a owl:Class, rdfs:Class;
+    rdfs:label "Diet"@en;
+    rdfs:comment "The diet of a particular animal in a zoological setting is a fundamental aspect of its care, impacting its health, behavior, and reproduction."@en.
+<https://my-model-vhfk9.iri.todo.com/entities/diet-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "diet type"@en;
+    rdfs:comment "We distinguish different types of diet whether an animal is herbivorous, carnivorous, omnivorous, piscivorous, etc. This classification helps in formulating appropriate feeding strategies."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/diet>.
+<https://my-model-vhfk9.iri.todo.com/entities/nutrients> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "nutrients"@en;
+    rdfs:comment "The diet is related to specific nutrients required to maintain health and vitality. For example, some species may require particular vitamins or minerals in higher quantities than others."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/diet>.
+<https://my-model-vhfk9.iri.todo.com/entities/feeding-schedule> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "feeding schedule"@en;
+    rdfs:comment "Specifies the frequency and timing of feeding, which can affect the animal's metabolic rate and overall health. Some species may need multiple small feedings throughout the day, while others might suffice with less frequent larger meals.<"@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/diet>.
+<https://my-model-vhfk9.iri.todo.com/entities/feeding-technique> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "feeding technique"@en;
+    rdfs:comment "The diet can also be associated with a special feeding technique because some animals, especially those with unique physiological or behavioral adaptations, require special methods of feeding that mimic their natural foraging behaviors, enhancing their psychological well-being and physical health."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/diet>.
+<https://my-model-vhfk9.iri.todo.com/entities/conservation-program> a owl:Class, rdfs:Class;
+    rdfs:label "Conservation Program"@en;
+    rdfs:comment "Conservation programs a zoo participates in are initiatives aimed at preserving biodiversity through in-situ and ex-situ strategies. These programs often collaborate with global conservation entities and are pivotal in research, breeding programs, and reintroduction efforts."@en.
+<https://my-model-vhfk9.iri.todo.com/entities/country> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "country"@en;
+    rdfs:comment "A country the conversation with ex-situ strategies focuses on."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/conservation-program>.
+<https://my-model-vhfk9.iri.todo.com/entities/geographic-region> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "geographic region"@en;
+    rdfs:comment "A geographic region the conversation with ex-situ strategies focuses on."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/conservation-program>.
+<https://my-model-vhfk9.iri.todo.com/entities/supports> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "supports"@en;
+    rdfs:comment "A conversation program focuses on particular species it supports."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/conservation-program>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/species>.
+<https://my-model-vhfk9.iri.todo.com/entities/administrative-personnel> a owl:Class, rdfs:Class;
+    rdfs:label "Administrative Personnel"@en;
+    rdfs:comment "A specialised kind of staff member of a zoological garden."@en;
+    rdfs:subClassOf <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/zoological-garden> a owl:Class, rdfs:Class;
+    rdfs:label "Zoological Garden"@en;
+    rdfs:comment "A zoological garden is a complex entity where the interplay of biological diversity, human interaction, and environmental management coalesce into a singular institution aimed at conservation, education, and research."@en.
+<https://my-model-vhfk9.iri.todo.com/entities/provides> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "provides"@en;
+    rdfs:comment "A zoological garden provides various enclosures where its animals live and are ethicaly displayed and conserved."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/zoological-garden>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
+<https://my-model-vhfk9.iri.todo.com/entities/participates-in> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "participates in"@en;
+    rdfs:comment "Conservation programs a zoological garden participates in."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/zoological-garden>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/conservation-program>.
+<https://my-model-vhfk9.iri.todo.com/entities/has-member> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has member"@en;
+    rdfs:comment "A staff member is a member of a zoological garden."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/zoological-garden>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/staff-member> a owl:Class, rdfs:Class;
+    rdfs:label "Staff member"@en;
+    rdfs:comment "Staff members are integral to operation of zoological gardens"@en.
+<https://my-model-vhfk9.iri.todo.com/entities/permanent-address> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "permanent address"@en;
+    rdfs:comment "The permanent address of the staff member kept for the administrative purposes."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/birth-date> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "birth date"@en;
+    rdfs:comment "The birth date of the staff member kept for the administrative purposes."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/expertise> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "expertise"@en;
+    rdfs:comment "The expertise of the staff member that directly affect animal welfare."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/name> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "name"@en;
+    rdfs:comment "The name of the staff member."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/staff-member>.
+<https://my-model-vhfk9.iri.todo.com/entities/enclosure> a owl:Class, rdfs:Class;
+    rdfs:label "Enclosure"@en;
+    rdfs:comment "A specialized habitat designed to mimic the natural environments of the resident species and for the ethical display and conservation of animals. "@en.
+<https://my-model-vhfk9.iri.todo.com/entities/enclosure-type> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "enclosure type"@en;
+    rdfs:comment "The type of the enclosure, e.g., aviary, aquarium, terrarium."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
+<https://my-model-vhfk9.iri.todo.com/entities/enclosure-size> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "enclosure size"@en;
+    rdfs:comment "The size of the enclosure is square meters"@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
+<https://my-model-vhfk9.iri.todo.com/entities/has-climate-conditions> a rdf:Property, owl:ObjectProperty;
+    rdfs:label "has climate conditions"@en;
+    rdfs:comment "The climate conditions of enclosures in zoological gardens are complex and need to be tailored specifically to the needs of each species."@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/enclosure>;
+    rdfs:range <https://my-model-vhfk9.iri.todo.com/entities/climate-conditions>.
+<https://my-model-vhfk9.iri.todo.com/entities/vegetation> a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "vegetation"@en;
+    rdfs:comment "The vegetation in the enclosure"@en;
+    rdfs:domain <https://my-model-vhfk9.iri.todo.com/entities/enclosure>.
